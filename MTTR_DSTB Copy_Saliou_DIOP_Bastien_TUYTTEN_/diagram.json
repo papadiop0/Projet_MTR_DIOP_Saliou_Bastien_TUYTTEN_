@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "author": "DIOP Saliou,Bastien TUYTTEN",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -28.8, "left": -158.36, "attrs": {} },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": -111.2,
+      "left": -256.98,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": 185.6,
+      "left": -479.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -147.2,
+      "left": 120.8,
+      "attrs": { "pins": "i2c", "i2cAddress": "0x27" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd2",
+      "top": 35.2,
+      "left": 130.4,
+      "attrs": { "pins": "i2c", "i2cAddress": "0x28" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd3",
+      "top": 236.8,
+      "left": 140,
+      "attrs": { "pins": "i2c", "i2cAddress": "0x29" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:VCC", "esp:5V", "red", [ "h0" ] ],
+    [ "lcd2:VCC", "esp:5V", "red", [ "h0" ] ],
+    [ "lcd3:VCC", "esp:5V", "red", [ "h0" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "lcd2:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "lcd3:GND", "esp:GND.3", "black", [ "h0" ] ],
+    [ "lcd1:SDA", "esp:21", "green", [ "h0" ] ],
+    [ "lcd2:SDA", "esp:21", "green", [ "h0" ] ],
+    [ "lcd3:SDA", "esp:21", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "esp:22", "green", [ "h0" ] ],
+    [ "lcd2:SCL", "esp:22", "green", [ "h0" ] ],
+    [ "lcd3:SCL", "esp:22", "green", [ "h0" ] ],
+    [ "ldr1:VCC", "esp:5V", "red", [ "h0" ] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [ "h0" ] ],
+    [ "ldr1:AO", "esp:34", "green", [ "h0" ] ],
+    [ "pir1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "pir1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "pir1:OUT", "esp:13", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
